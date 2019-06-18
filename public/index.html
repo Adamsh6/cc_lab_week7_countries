@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Web App</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/bundle.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>Total Population of the World is: {{totalPopulation}}</p>
+    <form>
+      <select v-model="selectedCountry">
+        <option  v-for="country in countries" :value="country">{{country.name}}</option>
+      </select>
+    </form>
+    <button v-on:click="addCountry">Add to favourites</button>
+    <h3>My Favourite Countries</h3>
+    <ul>
+      <li v-for="country in favouriteCountries">{{country.name}}</li>
+    </ul>
+    <p>{{selectedCountry.name}}<p>
+      <img :src="selectedCountry.flag"/>
+    <ul v-if="newNeighbouringCountries">
+      <li  v-for="country in newNeighbouringCountries">{{country.name}} : {{country.population}}</li>
+    </ul>
+  </div>
+</body>
